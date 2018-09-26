@@ -1,0 +1,29 @@
+// BEGIN THE SKELETON RECIPE
+
+// open dialog box to choose the source folder of images
+sourcedir = getDirectory("Choose Source Directory ");
+
+// open dialog box to the output images
+destdir = getDirectory("Choose Destination Directory ");
+
+// stores all files in the source directory as an array of strings
+list = getFileList(sourcedir);
+
+// enter Batch mode: images are not display and runs ~20 times faster
+setBatchMode(true);
+
+// loop through each image, applying whatever Macro you design and save the output
+for (i=0; i<list.length; i++) {
+	filename = sourcedir + list[i];
+	// only choose input TIF files
+	if (endsWith(filename, "tif")) {
+		open(filename);
+		print('yosh');
+		// YOUR MACRO BEGINS HERE
+		// ENDS HERE
+		// save images as TIF
+		saveAs("TIFF", destdir+list[i]);
+		close();
+	}
+}
+// USER-DEFINED FUNCTIONS BEGIN HERE
